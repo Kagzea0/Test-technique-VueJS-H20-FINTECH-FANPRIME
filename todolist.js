@@ -1,25 +1,35 @@
 const main = {
     template: `
         <div>
-            <h1>Todo List</h1>
-            <input v-model="newTask" @keyup.enter="addTask" placeholder="New task">
+            <h1>VueJs To-Do List</h1>
+            <input v-model="newTask" @keyup.enter="addTask" placeholder="New task" :id="'addTask'">
 
-            <button @click="deleteAllTasks">Delete tasks</button>
+            <button @click="deleteAllTasks" :id="'deleteAllTasks'">Delete tasks</button>
 
-            <span> {{ completedTasks }} </span> <span> Tasks done </span>
+            <span :id="'completedTasks'">{{ completedTasks }} Tasks done</span>
 
-            <span> {{ tasks.length }} </span> <span> Tasks </span>
-        
+            <span :id="'tasks'"> {{ tasks.length }} Tasks </span>
 
             <ul>
                 <li v-for="(task, index) of tasks" :key="index">
-                    <input type="checkbox" :class="'taskCheckbox'" v-model="task.completed" @change="updateTask">
-                    <span v-if="!editingTask || editingTaskIndex !== index" :class="'taskName'">{{ task.name }}</span>
+                    <input type="checkbox" :class="'taskCheckbox'" v-model="task.completed" @change="updateTask" id="taskCheckbox">
+                    <label for="taskCheckbox">
+                        <img :src="task.completed ? 'Assets/Croix.svg' : 'Assets/Coche.svg'" alt="Edit" width="20" height="20">                    
+                    </label>  
 
-                    <input :class="'editTask'" v-else v-model="editedTask" @keyup.enter="saveTask(index)">
+                    <span v-if="!editingTask || editingTaskIndex !== index" :id="'taskName'">{{ task.name }}</span>
 
-                    <button @click="editTask(index)">Edit</button>
-                    <button @click="deleteTask(index)">Delete</button>
+                    <input :id="'editTask'" v-else v-model="editedTask" @keyup.enter="saveTask(index)">
+
+                    <div :class="'container'">
+                        <button @click="editTask(index)" :id="'butEditTask'">
+                            <img src="Assets/Crayon.svg" alt="Edit" width="20" height="20">
+                        </button>
+
+                        <button @click="deleteTask(index)" :id="'butDeleteTask'">    
+                            <img src="Assets/Poubelle.svg" alt="Edit" width="20" height="20">
+                        </button>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -40,7 +50,8 @@ const main = {
             if (this.newTask.trim()) {
                 this.tasks.push({ name: this.newTask.trim(), completed: false });
                 this.newTask = '';
-                this.saveTask();
+                this.saveAllTasks();
+                window.location.reload();
             }
         },
 
@@ -52,7 +63,7 @@ const main = {
             else {
                 this.editingTask = true;
                 this.editingTaskIndex = index;
-                this.editedTask = this.tasks[index].name;    
+                this.editedTask = this.tasks[index].name;
             }
         },
 
@@ -88,16 +99,14 @@ const main = {
             this.saveAllTasks();
         },
 
-        // Méthode updateTask (si j'ai le temps)
+        // Méthode updateTask
         updateTask() {
             this.completedTasks = this.tasks.filter(task => task.completed).length;
-        }        
+        }
     },
     created() {
-        this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         this.completedTasks = this.tasks.filter(task => task.completed).length;
     }
-
 };
 
 export default main;

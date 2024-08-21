@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #B5B8CF;
+}
+
+#traits {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 26%;
+    z-index: -1;
+}
+
+#rectangles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 15%;
+    z-index: -1;
+}
+
+#cercles {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 26%;
+    z-index: -1;
+}
+
+#fleches {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 26%;
+    z-index: -1;
+}
+
+h1 {
+    font-family: "Nunito";
+    font-weight: 400;
+    font-size: 300%;
+    color: #242957;
+    position: absolute;
+    top: 7.5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#carre {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background-color: #242957;
+    border-radius: 15px;
+    z-index: 0;
+}
+
+#addTask {
+    position: absolute;
+    top: 27%;
+    left: 32.75%;
+    transform: translateX(-50%);
+    width: 12.5%;
+    height: 2.5%;
+    border: none;
+    outline: none;
+    z-index: 1;
+    color: #242957 50%;
+    background-color: #B5B8CF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#deleteAllTasks {
+    position: absolute;
+    top: 27%;
+    left: 45.5%;
+    transform: translateX(-50%);
+    width: 10%;
+    height: 5.2%;
+    border: none;
+    outline: none;
+    z-index: 1;
+    color: #242957;
+    border-color: #B5B8CF;
+    background-color: #B5B8CF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#hr {
+    background-color: #B5B8CF;
+    z-index: 10;
+    width: 50%;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    height: 0.25%;
+}
+
+#completedTasks {
+    position: absolute;
+    top: 27%;
+    left: 68.85%;
+    transform: translateX(-50%);
+    width: 9.5%;
+    height: 2.5%;
+    border: none;
+    outline: none;
+    z-index: 1;
+    color: #242957;
+    border-color: #B5B8CF;
+    background-color: #B5B8CF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#tasks {
+    position: absolute;
+    top: 27%;
+    left: 57%;
+    transform: translateX(-50%);
+    width: 10%;
+    height: 2.5%;
+    border: none;
+    outline: none;
+    z-index: 1;
+    color: #242957;
+    border-color: #B5B8CF;
+    background-color: #B5B8CF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+ul {
+    position: absolute;
+    top: 35.5%;
+    left: 25%;
+    width: 50%;
+    height: 40%;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+}
+
+li {
+    border: 1px solid #B5B8CF;
+    height: 5%;
+    margin: 10px;
+    padding: 7.5px;
+    list-style: none;
+    z-index: 1;
+    justify-items: center;
+    align-items: center;
+    border-radius: 5px;
+    color: #B5B8CF;
+}
+
+.container {
+    position: relative;
+    left: 92%;
+    top: -190%;
+}
+
+button {
+    background-color: #242957;
+    border: none;
+}
+
+.taskCheckbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+#taskName {
+    position: relative;
+    top: -5px;
+    left: 10px;
+    font-size: 20px;
+}
+
+#editTask {
+
+}
+
+#butEditTask {
+
+}
+
+#butDeleteTask {
+
+}

@@ -1,0 +1,4 @@
+{
+    "typescript.tsserver.useSyntaxServer": "never",
+    "emmet.showExpandedAbbreviation": "never"
+}
